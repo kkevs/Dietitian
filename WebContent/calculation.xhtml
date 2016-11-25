@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="template/page.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<ui:define name="content">
+		<h:form id="form">
+			<div align="center">
+				<p:commandLink action="#{calculationBean.updatableForm(1)}"
+					update="form">
+					<h:graphicImage value="resources/hesaplamalar/1.PNG" />
+				</p:commandLink>
+
+				<p:commandLink action="#{calculationBean.updatableForm(2)}"
+					update="form">
+					<h:graphicImage value="resources/hesaplamalar/2.PNG" />
+				</p:commandLink>
+
+				<p:commandLink action="#{calculationBean.updatableForm(3)}"
+					update="form">
+					<h:graphicImage value="resources/hesaplamalar/3.PNG" />
+				</p:commandLink>
+
+				<p:commandLink action="#{calculationBean.updatableForm(4)}"
+					update="form">
+					<h:graphicImage value="resources/hesaplamalar/4.PNG" />
+				</p:commandLink>
+
+				<p:commandLink action="#{calculationBean.updatableForm(5)}"
+					update="form">
+					<h:graphicImage value="resources/hesaplamalar/5.PNG" />
+				</p:commandLink>
+			</div>
+			<div align="center"
+				style="width: 50%; height: 50%; margin-left: 25%;">
+
+				<p:panel header="Bazal Metabolizma Hızı Hesaplama"
+					visible="#{calculationBean.first}">
+					<p:panelGrid columns="2">
+						<h:outputText value="Yaşınız" />
+						<p:inputText value="#{calculationBean.yas}" />
+
+						<h:outputText value="Boyunuzu Giriniz (cm)" />
+						<p:inputText value="#{calculationBean.yas}" />
+
+						<h:outputText value="Kilonuzu Giriniz (kg)" />
+						<p:inputText value="#{calculationBean.kilo}" />
+
+						<h:outputText value="Cinsiyet" />
+						<p:selectOneRadio id="console" value="#{calculationBean.cinsiyet}">
+							<f:selectItems value="#{calculationBean.cinsiyetList}"
+								var="cinsiyet" itemLabel="#{cinsiyet}" itemValue="#{cinsiyet}" />
+						</p:selectOneRadio>
+
+						<p:commandButton value="hesapla" action="#{calculationBean.bazal}" />
+					</p:panelGrid>
+				</p:panel>
+
+
+				<p:panel header="Beden Kitle İndeksi Hesaplama"
+					visible="#{calculationBean.second}">
+					<p:panelGrid columns="2">
+						<h:outputText value="Boyunuzu Giriniz (cm)" />
+						<p:inputText value="#{calculationBean.yas}" />
+
+						<h:outputText value="Kilonuzu Giriniz (kg)" />
+						<p:inputText value="#{calculationBean.kilo}" />
+
+						<h:commandButton value="hesapla"
+							action="#{calculationBean.bedenKitle}" />
+					</p:panelGrid>
+				</p:panel>
+
+				<p:panel header="Bel Çevresi Hesaplama"
+					visible="#{calculationBean.third}">
+					<p:panelGrid columns="2">
+						<h:outputText value="Bel Çevreniz (cm)" />
+						<p:inputText value="#{calculationBean.kilo}" />
+
+						<h:outputText value="Cinsiyet" />
+						<h:selectOneRadio value="#{calculationBean.cinsiyet}">
+							<f:selectItem itemValue="erkek" itemLabel="Erkek" />
+							<f:selectItem itemValue="kadin" itemLabel="Kadın" />
+						</h:selectOneRadio>
+						<h:commandButton value="hesapla"
+							action="#{calculationBean.belCevresi}" />
+					</p:panelGrid>
+				</p:panel>
+
+				<p:panel header="Günlük Enerji İhtiyacı"
+					visible="#{calculationBean.forth}">
+					<p:panelGrid columns="2">
+						<h:selectOneRadio value="#{calculationBean.secim}">
+							<f:selectItem itemValue="Hafif Aktivite"
+								itemLabel="Hafif Aktivite" />
+							<h:outputText
+								value="Oturarak çalışma, Otomobil kullanma, Giyinme, Soyunma, Hafif ev işleri" />
+
+							<f:selectItem itemValue="Orta Düzey Aktivite"
+								itemLabel="Orta Düzey Aktivite" />
+							<h:outputText
+								value="Hergün 40-45 dk yürüyüşler, Orta düzeyde ev işleri, Bahçe işleri" />
+
+							<f:selectItem itemValue="Bazal Metabolizma Hızı"
+								itemLabel="Bazal Metabolizma Hızı" />
+							<h:outputText
+								value="Fiziki güç kullanılarak yapılan meslekler, Koşma, Hızlı yürüme, Uzun tempolu yürüyüşler" />
+
+						</h:selectOneRadio>
+
+						<h:commandButton value="hesapla"
+							action="#{calculationBean.gunluk}" />
+					</p:panelGrid>
+				</p:panel>
+				<p:panel header="Yağ Yakma Nabzı" visible="#{calculationBean.fifth}">
+					<p:panelGrid columns="2">
+						<h:outputText value="Yaşınız" />
+						<p:inputText value="#{calculationBean.yas}" />
+
+						<h:commandButton value="hesapla"
+							action="#{calculationBean.yagYakma}" />
+					</p:panelGrid>
+				</p:panel>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

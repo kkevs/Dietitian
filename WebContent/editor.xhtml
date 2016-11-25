@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+
+</h:head>
+<h:body class="homepage">
+	<h:form id="form">
+		<div>
+			<p:inputText id="baslik" placeholder="Başlık Giriniz" required="true"
+				requiredMessage="Başlık Kısmı Boş Olamaz!" title="Başlık Giriniz"
+				value="#{editorBean.editor.header}" />
+			<p:message for="baslik" />
+			<p:editor id="editor" widgetVar="editorWidget"
+				value="#{editorBean.editor.content}" width="600" />
+			<h:panelGrid columns="2" style="margin-top: 10px">
+				<p:commandButton value="Submit" icon="ui-icon-disk"
+					action="#{editorBean.addBlog}" />
+				<p:commandButton value="Clear" type="button"
+					onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
+			</h:panelGrid>
+			<h:commandLink action="#{userBean.logout}" value="Logout" />
+		</div>
+	</h:form>
+</h:body>
+</html>

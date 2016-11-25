@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="template/page.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="content">
+		<main class="main-content">
+		<div class="author-bio">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="profile-picture"> <img
+							src="resources/dummy/ezgi.jpg" alt="" /></figure>
+					</div>
+					<div class="col-md-6 col-md-offset-1">
+						<h2>
+							Merhaba, <br> Ben Ezgi Öztürk</br>
+						</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+						<ul class="person-detail">
+							<li><span class="icon"><img
+									src="resources/images/icon-baby.png" /></span>Doğum <strong>08.05.1985</strong></li>
+							<li><span class="icon"><img
+									src="resources/images/icon-map-marker.png" /></span>Şehir <strong>New
+									York</strong></li>
+							<li><span class="icon"><img
+									src="resources/images/icon-heart.png" /></span>Favoriler <strong>Lorem
+									ipsum, Dolor sit</strong></li>
+							<li><span class="icon"><img
+									src="resources/images/icon-clock.png" /></span>Deneyim <strong>6
+									years</strong></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		</main>
+		<!-- .main-content -->
+	</ui:define>
+	<script src="resources/js/jquery-1.11.1.min.js"></script>
+	<script src="resources/js/plugins.js"></script>
+	<script src="resources/js/app.js"></script>
+</ui:composition>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<body>
+	<ui:composition>
+		<header class="site-header">
+		<div class="container">
+			<div id="branding" class="pull-left">
+				<h1 class="site-title">
+					<a href="index.xhtml"><b>Diyetisyen Ezgi Öztürk</b></a>
+				</h1>
+			</div>
+			<div class="main-navigation pull-right">
+				<button type="button" class="menu-toggle" onclick="deneme();">
+					<i class="fa fa-bars"></i>
+				</button>
+				<ul class="menu">
+					<li class="menu-item"><a href="about.xhtml">Hakkımda</a></li>
+					<li class="menu-item"><a href="blog.xhtml">Blog</a></li>
+					<li class="menu-item"><a href="onlinediet.xhtml">Online
+							Diyet</a></li>
+					<li class="menu-item"><a href="calculation.xhtml">Hesaplamalar</a></li>
+					<li class="menu-item"><a href="contact.xhtml">İletişim</a></li>
+					<c:choose>
+						<c:when test="#{userBean.b == true}">
+							<c:set var="myVar" value="true" />
+							<li class="menu-item"><a href="index.xhtml">Çıkış</a></li>
+						</c:when>
+						<c:when test="#{userBean.b == false}">
+							<c:set var="myVar" value="false" />
+							<li class="menu-item"><a href="login.xhtml">Giriş</a></li>
+						</c:when>
+					</c:choose>
+				</ul>
+			</div>
+
+			<script type="text/javascript">
+				function deneme() {
+					var e = document.getElementById('dividedDiv');
+					if (e.style.display == 'block')
+						e.style.display = 'none';
+					else
+						e.style.display = 'block';
+
+				}
+			</script>
+
+			<div class="mobile-navigation" id="dividedDiv" style="display: none;">
+				<ul class="menu">
+					<li class="menu-item"><a href="about.xhtml">Hakkımda</a></li>
+					<li class="menu-item"><a href="blog.xhtml">Blog</a></li>
+					<li class="menu-item"><a href="onlinediet.xhtml">Online
+							Diyet</a></li>
+					<li class="menu-item"><a href="calculation.xhtml">Hesaplamalar</a></li>
+					<li class="menu-item current-menu-item"><a
+						href="contact.xhtml">İletişim</a></li>
+					<c:choose>
+						<c:when test="#{userBean.b == true}">
+							<c:set var="myVar" value="true" />
+							<li class="menu-item"><a href="index.xhtml">Çıkış</a></li>
+						</c:when>
+						<c:when test="#{userBean.b == false}">
+							<c:set var="myVar" value="false" />
+							<li class="menu-item"><a href="login.xhtml">Giriş</a></li>
+						</c:when>
+					</c:choose>
+				</ul>
+			</div>
+		</div>
+		</header>
+	</ui:composition>
+</body>
+</html>

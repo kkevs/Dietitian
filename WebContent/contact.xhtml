@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="template/page.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<ui:define name="content">
+		<h:form>
+			<p>
+				<b>Bana Ulaşın..</b>
+			</p>
+			<div class="contact-detail">
+				<span class="location"><img
+					src="resources/images/icon-map-marker-alt.png" /> Ankara</span> <span
+					class="email"><img src="resources/images/icon-envelope.png" />
+					<a href="mailto:kevser.kose.95@gmail.com">ezgiozturkdiyetisyen@gmail.com</a></span>
+				<span class="phone"><img
+					src="resources/images/icon-phone.png" /> <a
+					href="tel:(942)321490234">(942) 321 490 234</a></span>
+			</div>
+			<p:gmap center="39.93336,32.85974" zoom="13" type="HYBRID"
+				style="width:100%;height:400px" model="#{mapBean.simpleModel}" />
+			<br></br>
+			<br></br>
+			<div align="center">
+				<p:panelGrid columns="2" style="width: 50%; border: solid;">
+					<p:outputLabel value="Adınız Soyadınız:" />
+					<p:inputText value="#{mailBean.adSoyad}"
+						placeholder="isim ve soyad..." size="50" />
+					<p:outputLabel value="Mail Adresiniz:" />
+					<p:inputText value="#{mailBean.mailAdresi}" required="true"
+						placeholder="email..." size="50" />
+					<p:outputLabel value="Görüşünüz:" />
+					<p:inputTextarea value="#{mailBean.gorus}" placeholder="mesaj..." cols="55" rows="5"/>
+					<p:commandButton actionListener="#{mailBean.mailAt}" value="GÖNDER"
+						action="index.xhtml?faces-redirect=true" />
+				</p:panelGrid>
+			</div>
+		</h:form>
+		<script
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMxFW8e7yMaKmzPiZ8XToO4TQRsDxxmlA"
+			type="text/javascript"></script>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+		<div align="center">
+			<p:panelGrid columns="2" columnClasses="label, value">
+				<p:outputLabel value="Email" />
+				<p:inputText value="#{userBean.user.email}" id="email"
+					required="true" label="email" requiredMessage="Email giriniz.."
+					validatorMessage="uygun mail formatı giriniz..">
+					<f:validateRegex
+						pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+				</p:inputText>
+				<p:watermark for="email" value="Email Address *" />
+				<p:message for="email" />
+				
+				<p:outputLabel value="Parola" />
+				<p:password value="#{userBean.user.password}" id="parola"
+					required="true" label="parola" requiredMessage="Parola giriniz.." />
+				<p:watermark for="parola" value="parola *" />
+				<p:message for="parola"/>
+				
+				<p:commandButton value="Giriş" action="#{userBean.controlUser}"
+					label="giris" ajax="false" />
+					
+				<p:commandButton value="Kaydol" label="kaydol"
+					onclick="window.location.href='register.xhtml' " />
+			</p:panelGrid>
+			<div>
+				<h:outputLink value="index.xhtml">Anasayfaya Geri Dön..</h:outputLink>
+			</div>
+		</div>
+
+	</h:form>
+</h:body>
+</html>
