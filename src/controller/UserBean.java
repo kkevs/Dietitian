@@ -69,6 +69,7 @@ public class UserBean {
 
 
 	public String logout() {
+		System.out.println("logout inside...");
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "/index.xhtml?faces-redirect=true";
 	}

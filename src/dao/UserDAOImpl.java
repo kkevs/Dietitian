@@ -44,6 +44,7 @@ public class UserDAOImpl extends DBConnection implements UserDAO {
 			sb16.append(Integer.toString((messageDigestDizisi[i] & 0xff) + 0x100, 16).substring(1));
 		}
 
+		
 		String selectSQL = "SELECT * FROM tbl_kullanici WHERE email='" + user.getEmail() + "' and password='"
 				+ sb16.toString() + "'";
 		newConnectDB();
